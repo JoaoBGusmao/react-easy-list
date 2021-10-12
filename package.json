@@ -1,6 +1,6 @@
 {
   "name": "react-easy-list",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Easy list system based on ReactNative&#x27;s FlatList API",
   "author": "JoaoBGusmao",
   "license": "MIT",

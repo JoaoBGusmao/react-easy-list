@@ -4,9 +4,11 @@ import { keyExtractor as defaultKeyExtractor, ValidComponent } from './utils';
 
 let Wrapper;
 try {
+  // eslint-disable-next-line global-require, import/no-unresolved
   const { View } = require('react-native');
   Wrapper = View;
-} catch(e) {
+} catch (e) {
+  // eslint-disable-next-line react/jsx-props-no-spreading
   Wrapper = (props) => <div {...props} />;
 }
 

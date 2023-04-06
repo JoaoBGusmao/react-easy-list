@@ -2,6 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { keyExtractor as defaultKeyExtractor, ValidComponent } from './utils';
 
+let Wrapper;
+try {
+  const { View } = require('react-native');
+  Wrapper = View;
+} catch(e) {
+  Wrapper = (props) => <div {...props} />;
+}
+
 const EasyList = ({
   keyExtractor,
   style,
@@ -25,19 +33,19 @@ const EasyList = ({
     }
 
     return data.map((item, index) => (
-      <div key={keyExtractor(item, index)}>
+      <Wrapper key={keyExtractor(item, index)}>
         {renderItem(item, index)}
         {index < end ? ItemSeparatorComponent : undefined}
-      </div>
+      </Wrapper>
     ));
   };
 
   return (
-    <div style={style}>
+    <Wrapper style={style}>
       {FinalListHeaderComponent}
       {renderer()}
       {FinalListFooterComponent}
-    </div>
+    </Wrapper>
   );
 };
 
